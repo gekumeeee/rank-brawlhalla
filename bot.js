@@ -44,7 +44,7 @@ let userData = points[message.author.id];
 let embed = new Discord.RichEmbed()
 .setAuthor(`${message.author.tag}`, message.author.avatarURL)
 .setColor('#000000')
-.setDescription(`نقاطك: \`${userData.points}\``)
+.setDescription(`  points:    \`${userData.points}\`   `)
 message.channel.sendEmbed(embed)
 }
 });
@@ -70,12 +70,10 @@ client.on('message' , message => {
     var player1_id = message.author.id
     let player2_id = array_of_mentions[random2].id;
     var turn_id = player1_id;
-    var symbol = symbols[0];
     let initial_message = `التخدي بين  <@${player1_id}> vs <@${player2_id}>!`;
     if (player1_id == player2_id) {
-      initial_message += '\n_(لقد خسرت, :joy:)_'
     }
-    message.channel.send(`Xo ${initial_message}`)
+    message.channel.send(`vs ${initial_message}`)
     .then(console.log("Successful tictactoe introduction"))
     .catch(console.error);
     message.channel.send(':one::two::three:' + '\n' +
@@ -86,21 +84,9 @@ client.on('message' , message => {
     })
     .then(console.log("Successful tictactoe game initialization"))
     .catch(console.error);
-    message.channel.send('Loading... Please wait for the :ok: reaction.')
+    message.channel.send('Please wait for the end 1 v 1')
     .then(async (new_message) => {
-      await new_message.react('1⃣');
-      await new_message.react('2⃣');
-      await new_message.react('3⃣');
-      await new_message.react('4⃣');
-      await new_message.react('5⃣');
-      await new_message.react('6⃣');
-      await new_message.react('7⃣');
-      await new_message.react('8⃣');
-      await new_message.react('9⃣');
-      await new_message.react('🆗');
-      await new_message.edit(`It\'s <@${turn_id}>\'s اشتغل! الرمز هو ${symbol}`)
-      .then((new_new_message) => {
-        require('./xo.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
+      await new_message.react(':BrawlHalla:');
       })
       .then(console.log("Successful tictactoe listeprefix initialization"))
       .catch(console.error);
