@@ -76,9 +76,7 @@ client.on('message' , message => {
     message.channel.send(`vs ${initial_message}`)
     .then(console.log("Successful tictactoe introduction"))
     .catch(console.error);
-    message.channel.send(':one::two::three:' + '\n' +
-                         ':four::five::six:' + '\n' +
-                         ':seven::eight::nine:')
+    message.channel.send(':BrawlHalla:')
     .then((new_message) => {
       grid_message = new_message;
     })
@@ -86,11 +84,8 @@ client.on('message' , message => {
     .catch(console.error);
     message.channel.send('Please wait for the end 1 v 1')
     .then(async (new_message) => {
-      await new_message.react(':BrawlHalla:');
+      await new_message.react(':vs:');
       })
-      .then(console.log("Successful tictactoe listeprefix initialization"))
-      .catch(console.error);
-    })
     .then(console.log("Successful tictactoe react initialization"))
     .catch(console.error);
   }
